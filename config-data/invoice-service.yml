@@ -46,4 +46,12 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8099/eureka
-      
+
+feign:
+  client:
+    config:
+      default:
+        retryer:
+          period: 100
+          maxPeriod: 1000
+          maxAttempts: 1
