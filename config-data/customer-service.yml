@@ -9,7 +9,7 @@ server:
 #http://localhost:8091/h2-console para ver la consola H2 en el navegador
 spring:
   application:
-    name: service-customer
+    name: customer-service
   sql:
     init:
       mode: always
