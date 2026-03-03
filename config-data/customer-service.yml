@@ -47,4 +47,11 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8099/eureka
 
-      
+management:
+  endpoints:
+    web:
+      exposure:
+        # Exponemos los endpoints específicos de resilience4j
+       #include: health, info, circuitbreakers, circuitbreakerevents
+       include: "*"
+       

@@ -55,3 +55,17 @@ feign:
           period: 100
           maxPeriod: 1000
           maxAttempts: 1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        # Exponemos los endpoints específicos de resilience4j
+       #include: health, info, circuitbreakers, circuitbreakerevents
+       include: "*"
+  endpoint:
+    health:
+      show-details: always # Necesario para ver el estado individual de los CBs
+  health:
+    circuitbreakers:
+      enabled: true # Habilita la integración del CB con el health check
