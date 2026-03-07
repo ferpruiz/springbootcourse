@@ -54,4 +54,15 @@ management:
         # Exponemos los endpoints específicos de resilience4j
        #include: health, info, circuitbreakers, circuitbreakerevents
        include: "*"
-       
+  #micrometer logs config
+  tracing:
+    sampling:
+      # 1.0 significa que rastrea el 100% de las peticiones. 
+      # En producción podrías bajarlo a 0.1 (10%)
+      probability: 1.0
+
+#micrometer logs config
+logging:
+  pattern:
+    # Este formato incluye: Prioridad [NombreApp, TraceID, SpanID] Mensaje
+    level: "%5p [${spring.application.name:-},%X{traceId:-},%X{spanId:-}]"
