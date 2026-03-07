@@ -64,4 +64,6 @@ management:
       # 1.0 significa que rastrea el 100% de las peticiones. 
       # En producción podrías bajarlo a 0.1 (10%)
       probability: 1.0
-
+    observations:
+      key-values:
+        application: ${spring.application.name}
