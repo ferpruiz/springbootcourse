@@ -64,6 +64,8 @@ management:
       # 1.0 significa que rastrea el 100% de las peticiones. 
       # En producción podrías bajarlo a 0.1 (10%)
       probability: 1.0
+    propagation:
+      type: brave # Fuerza el uso del formato Brave
     observations:
       annotations:
         enabled: true
