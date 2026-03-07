@@ -40,7 +40,12 @@ spring:
 
 logging:
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+    #console: "%d{yyyy-MM-dd HH:mm:ss} ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+    #micrometer logs config
+    # Este formato incluye: Prioridad [NombreApp, TraceID, SpanID] Mensaje
+    #level: "%5p [${spring.application.name:-},%X{traceId:-},%X{spanId:-}]"
+    console: "%d{yyyy-MM-dd HH:mm:ss} %5p [${spring.application.name:-},%X{traceId:-},%X{spanId:-}] %m%n"
+
 
 eureka:
   client:
@@ -61,8 +66,5 @@ management:
       # En producción podrías bajarlo a 0.1 (10%)
       probability: 1.0
 
-#micrometer logs config
-logging:
-  pattern:
-    # Este formato incluye: Prioridad [NombreApp, TraceID, SpanID] Mensaje
-    level: "%5p [${spring.application.name:-},%X{traceId:-},%X{spanId:-}]"
+
+
